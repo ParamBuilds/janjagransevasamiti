@@ -11,6 +11,8 @@ const RegistrationForm = () => {
     script.async = true;
 
     if (formContainerRef.current) {
+      // Clear loading state
+      formContainerRef.current.innerHTML = '';
       formContainerRef.current.appendChild(script);
     }
 
@@ -23,43 +25,78 @@ const RegistrationForm = () => {
   }, []);
 
   return (
-    <section className="relative ashoka-watermark py-8 md:py-16" id="register">
-      <div className="container relative z-10">
-        {/* Section Header */}
-        <div className="mb-6 text-center md:mb-10">
-          <h3 className="font-heading text-xl font-bold text-foreground md:text-2xl">
-            Member Registration Form
-          </h3>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Fill in your details to join our mission
-          </p>
-        </div>
+    <div className="min-h-screen tricolor-bg py-6 px-4 sm:py-10">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-card rounded-2xl shadow-card overflow-hidden">
+          {/* Header Section */}
+          <div className="p-6 sm:p-8 border-b border-animated">
+            <div className="text-center mb-8 animate-fadeIn">
+              {/* Tricolor Stripe */}
+              <div className="flex h-2 mb-6 rounded-full overflow-hidden shadow-soft">
+                <div className="flex-1 bg-saffron"></div>
+                <div className="flex-1 bg-indian-white"></div>
+                <div className="flex-1 bg-indian-green"></div>
+              </div>
 
-        {/* Form Card */}
-        <div className="animate-scale-in mx-auto max-w-[900px] overflow-hidden rounded-2xl bg-card opacity-0 shadow-elevated">
-          {/* Form Header Strip */}
-          <div className="flex h-1.5">
-            <div className="flex-1 bg-primary" />
-            <div className="flex-1 bg-card" />
-            <div className="flex-1 bg-accent" />
+              {/* Logo and Title */}
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center border-4 border-primary/20 shadow-soft">
+                  <span className="text-3xl">🇮🇳</span>
+                </div>
+                <div>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
+                    जन जागृति सेवा समिति
+                  </h1>
+                  <p className="text-lg sm:text-xl text-primary font-semibold">
+                    JAN JAGRITI SEVA SAMITI
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Member Registration Form • सदस्य पंजीकरण प्रपत्र
+                  </p>
+                </div>
+              </div>
+
+              {/* Decorative Divider */}
+              <div className="mt-6 flex items-center justify-center gap-3">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50"></div>
+                <div className="w-2 h-2 rounded-full bg-primary"></div>
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/50"></div>
+              </div>
+            </div>
           </div>
-          
+
           {/* Jotform Container */}
           <div 
             ref={formContainerRef}
-            className="min-h-[500px] p-4 md:p-6"
+            className="min-h-[600px] p-4 sm:p-6"
           >
             {/* Loading state while Jotform loads */}
-            <div className="flex h-[400px] items-center justify-center">
+            <div className="flex h-[500px] items-center justify-center">
               <div className="text-center">
-                <div className="mx-auto h-8 w-8 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
+                <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary"></div>
                 <p className="mt-4 text-sm text-muted-foreground">Loading registration form...</p>
+                <p className="mt-1 text-xs text-muted-foreground">पंजीकरण फॉर्म लोड हो रहा है...</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="p-4 border-t border-animated bg-muted/30">
+            <div className="text-center">
+              <p className="text-xs text-muted-foreground">
+                © {new Date().getFullYear()} Jan Jagriti Seva Samiti • जन जागृति सेवा समिति
+              </p>
+              {/* Small tricolor bar */}
+              <div className="flex h-1 mt-3 rounded-full overflow-hidden max-w-[100px] mx-auto">
+                <div className="flex-1 bg-saffron"></div>
+                <div className="flex-1 bg-indian-white"></div>
+                <div className="flex-1 bg-indian-green"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
