@@ -2,95 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Indian Tricolor Theme */
+    --background: 30 100% 99%;
+    --foreground: 230 100% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 230 100% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 230 100% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Saffron/Bhagwa Primary */
+    --primary: 30 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 33 100% 60%;
+    --primary-dark: 27 100% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Indian Green Accent */
+    --accent: 130 85% 28%;
+    --accent-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Navy Blue Secondary */
+    --secondary: 240 100% 25%;
+    --secondary-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 30 20% 96%;
+    --muted-foreground: 230 30% 40%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 30% 88%;
+    --input: 30 30% 88%;
+    --ring: 30 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom Gradients */
+    --gradient-tricolor: linear-gradient(180deg, 
+      hsl(30 100% 50% / 0.15) 0%, 
+      hsl(0 0% 100% / 0.9) 33%, 
+      hsl(130 85% 28% / 0.1) 100%
+    );
+    --gradient-saffron: linear-gradient(135deg, 
+      hsl(30 100% 50%) 0%, 
+      hsl(33 100% 60%) 100%
+    );
+    --gradient-hero: linear-gradient(180deg,
+      hsl(30 100% 50% / 0.08) 0%,
+      hsl(0 0% 100%) 100%
+    );
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(230 100% 15% / 0.08), 
+                   0 8px 40px -8px hsl(30 100% 50% / 0.12);
+    --shadow-elevated: 0 8px 30px -8px hsl(230 100% 15% / 0.15),
+                       0 16px 60px -16px hsl(30 100% 50% / 0.2);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 230 50% 8%;
+    --foreground: 30 20% 98%;
+    --card: 230 40% 12%;
+    --card-foreground: 30 20% 98%;
+    --popover: 230 40% 12%;
+    --popover-foreground: 30 20% 98%;
+    --primary: 30 100% 55%;
+    --primary-foreground: 230 100% 10%;
+    --secondary: 240 60% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 230 30% 18%;
+    --muted-foreground: 30 20% 70%;
+    --accent: 130 70% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 230 30% 22%;
+    --input: 230 30% 22%;
+    --ring: 30 100% 55%;
   }
 }
 
@@ -99,7 +92,102 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Noto Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Noto Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .tricolor-bg {
+    background: var(--gradient-tricolor);
+  }
+
+  .saffron-gradient {
+    background: var(--gradient-saffron);
+  }
+
+  .hero-bg {
+    background: var(--gradient-hero);
+  }
+
+  .card-elevated {
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-floating {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .ashoka-watermark {
+    position: relative;
+  }
+
+  .ashoka-watermark::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23000080' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23000080'/%3E%3Cg stroke='%23000080' stroke-width='1.5'%3E%3Cline x1='50' y1='5' x2='50' y2='15'/%3E%3Cline x1='50' y1='85' x2='50' y2='95'/%3E%3Cline x1='5' y1='50' x2='15' y2='50'/%3E%3Cline x1='85' y1='50' x2='95' y2='50'/%3E%3Cline x1='18' y1='18' x2='25' y2='25'/%3E%3Cline x1='75' y1='75' x2='82' y2='82'/%3E%3Cline x1='82' y1='18' x2='75' y2='25'/%3E%3Cline x1='25' y1='75' x2='18' y2='82'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(15 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(30 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(60 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(75 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(105 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(120 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(150 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(165 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(195 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(210 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(240 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(255 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(285 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(300 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(330 50 50)'/%3E%3Cline x1='50' y1='5' x2='50' y2='15' transform='rotate(345 50 50)'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
 }
