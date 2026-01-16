@@ -52,6 +52,7 @@ export default {
         saffron: "hsl(var(--saffron))",
         "indian-green": "hsl(var(--indian-green))",
         "indian-white": "hsl(var(--indian-white))",
+        "warm-white": "hsl(var(--warm-white))",
       },
       fontFamily: {
         sans: ['Noto Sans', 'system-ui', 'sans-serif'],

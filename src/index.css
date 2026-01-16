@@ -6,14 +6,14 @@
 
 @layer base {
   :root {
-    /* Indian Tricolor Theme */
-    --background: 30 20% 98%;
+    /* Warm White Theme */
+    --background: 35 30% 97%;
     --foreground: 230 100% 15%;
 
-    --card: 0 0% 100%;
+    --card: 40 40% 99%;
     --card-foreground: 230 100% 15%;
 
-    --popover: 0 0% 100%;
+    --popover: 40 40% 99%;
     --popover-foreground: 230 100% 15%;
 
     /* Saffron/Bhagwa Primary */
@@ -28,32 +28,34 @@
     /* Saffron */
     --saffron: 30 100% 50%;
 
-    /* Indian White */
-    --indian-white: 0 0% 100%;
+    /* Warm White */
+    --warm-white: 40 50% 98%;
+    --indian-white: 40 30% 96%;
 
     /* Navy Blue Secondary */
     --secondary: 240 100% 25%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted/Accent */
-    --muted: 30 20% 96%;
-    --muted-foreground: 230 30% 40%;
+    --muted: 35 25% 94%;
+    --muted-foreground: 230 25% 45%;
     --accent: 130 85% 28%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 30% 88%;
-    --input: 30 30% 88%;
+    --border: 35 30% 88%;
+    --input: 35 30% 88%;
     --ring: 30 100% 50%;
 
     --radius: 0.75rem;
 
     /* Shadows */
-    --shadow-card: 0 4px 20px -4px hsl(230 100% 15% / 0.08), 
-                   0 8px 40px -8px hsl(30 100% 50% / 0.12);
-    --shadow-soft: 0 2px 8px -2px hsl(230 100% 15% / 0.1);
+    --shadow-card: 0 4px 25px -4px hsl(30 50% 30% / 0.1), 
+                   0 10px 50px -10px hsl(30 100% 50% / 0.15);
+    --shadow-soft: 0 2px 12px -2px hsl(30 50% 30% / 0.08);
+    --shadow-glow: 0 0 30px -5px hsl(30 100% 50% / 0.2);
   }
 
   .dark {
@@ -101,10 +103,10 @@
 @layer components {
   .tricolor-bg {
     background: linear-gradient(180deg, 
-      hsl(30 100% 50% / 0.12) 0%, 
-      hsl(0 0% 100% / 0.95) 35%,
-      hsl(0 0% 100%) 65%, 
-      hsl(130 85% 28% / 0.08) 100%
+      hsl(30 100% 50% / 0.1) 0%, 
+      hsl(40 40% 99%) 30%,
+      hsl(40 40% 99%) 70%, 
+      hsl(130 85% 28% / 0.06) 100%
     );
   }
 
@@ -120,6 +122,10 @@
     background-color: hsl(var(--indian-white));
   }
 
+  .bg-warm-white {
+    background-color: hsl(var(--warm-white));
+  }
+
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
@@ -128,22 +134,120 @@
     box-shadow: var(--shadow-soft);
   }
 
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
   .border-animated {
     border-color: hsl(var(--border));
   }
 
+  /* Animations */
   .animate-fadeIn {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 25px -5px hsl(30 100% 50% / 0.3);
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  /* Staggered animation delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
 }
